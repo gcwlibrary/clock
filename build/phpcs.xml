@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+
+	<description>PHP_CodeSniffer configuration for Clock.</description>
+	
+	<!-- Include the whole CodeIgniter standard -->
+	<rule ref="CodeIgniter"/>
+
+</ruleset>
