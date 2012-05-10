@@ -1,5 +1,6 @@
 <?php
-	$root = "http://localhost/searchmydata";
+	$protocol = $_SERVER['HTTPS'] == '' ? 'http://' : 'https://';
+	$root = $protocol . $_SERVER['HTTP_HOST'] . basename($_SERVER['REQUEST_URI']);
 	
 	function the_menu(){
 		global $root;
