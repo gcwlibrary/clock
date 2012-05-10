@@ -6,12 +6,12 @@
 		//global $root;
 		
 		$menu = '<ul class="tabs">
-					<li><a href="'/'">Home</a></li>
-					<li><a href="/about.php">About</a></li>
-					<li><a href="/cottrell.php">Cottrell Test</a></li>
-					<li><a href="/cottrell2.php">Cottrell Test 2</a></li>	
-					<li><a href="/cottrell3.php">Cottrell Test 3</a></li>	
-					<li><a href="/cottrell4.php">Cottrell Test 4</a></li>						
+					<li><a href="index.php">Home</a></li>
+					<li><a href="about.php">About</a></li>
+					<li><a href="cottrell.php">Cottrell Test</a></li>
+					<li><a href="cottrell2.php">Cottrell Test 2</a></li>	
+					<li><a href="cottrell3.php">Cottrell Test 3</a></li>	
+					<li><a href="cottrell4.php">Cottrell Test 4</a></li>						
 				</ul>';
 		
 		echo $menu;
@@ -25,7 +25,7 @@
 		//global $root;
 		
 		$form = '<h3>Search criteria</h3>
-				<form name="s" action="/search.php" method="post">
+				<form name="s" action="search.php" method="post">
 				<label for="s_title">Title</label>
 				<input type="text" name="s_title" id="s_title" />
 				
