@@ -1,17 +1,17 @@
 <?php
-	$protocol = $_SERVER['HTTPS'] == '' ? 'http://' : 'https://';
-	$root = $protocol . $_SERVER['HTTP_HOST'] . '/' . basename($_SERVER['REQUEST_URI']);
+	//$protocol = $_SERVER['HTTPS'] == '' ? 'http://' : 'https://';
+	//$root = $protocol . $_SERVER['HTTP_HOST'] . '/' . basename($_SERVER['REQUEST_URI']);
 	
 	function the_menu(){
-		global $root;
+		//global $root;
 		
 		$menu = '<ul class="tabs">
-					<li><a href="'.$root.'">Home</a></li>
-					<li><a href="'.$root.'/about.php">About</a></li>
-					<li><a href="'.$root.'/cottrell.php">Cottrell Test</a></li>
-					<li><a href="'.$root.'/cottrell2.php">Cottrell Test 2</a></li>	
-					<li><a href="'.$root.'/cottrell3.php">Cottrell Test 3</a></li>	
-					<li><a href="'.$root.'/cottrell4.php">Cottrell Test 4</a></li>						
+					<li><a href="'/'">Home</a></li>
+					<li><a href="/about.php">About</a></li>
+					<li><a href="/cottrell.php">Cottrell Test</a></li>
+					<li><a href="/cottrell2.php">Cottrell Test 2</a></li>	
+					<li><a href="/cottrell3.php">Cottrell Test 3</a></li>	
+					<li><a href="/cottrell4.php">Cottrell Test 4</a></li>						
 				</ul>';
 		
 		echo $menu;
@@ -22,10 +22,10 @@
 	}
 	
 	function the_form(){
-		global $root;
+		//global $root;
 		
 		$form = '<h3>Search criteria</h3>
-				<form name="s" action="'.$root.'/search.php" method="post">
+				<form name="s" action="/search.php" method="post">
 				<label for="s_title">Title</label>
 				<input type="text" name="s_title" id="s_title" />
 				
