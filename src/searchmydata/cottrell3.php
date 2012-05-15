@@ -58,6 +58,7 @@
 		<div class="two-thirds column">
 			<h3>Cottrell 3 - Harvard JSON test</h3>
 			<p>A little test to grab some data from the Harvard JSON API. Tested for an author keyword, limit 20 </p>
+			<p>The Harvard API does not seem to be able to search on keywords for both author AND title; this could be potentially restrictive for our searching.</p>
 			<?php
 				$json = file_get_contents("http://api.dp.la/v0.03/item/?filter=dpla.creator_keyword:cottrell&limit=20");
 				$json_a=json_decode($json,true);

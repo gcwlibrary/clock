@@ -10,7 +10,7 @@
 	<!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>Your Page Title Here :)</title>
+	<title>Tests</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -53,64 +53,33 @@
 			<?php the_menu(); ?>
 		</div>
 		<div class="one-third column">
+			
 			<?php the_form(); ?>
 		</div>
 		<div class="two-thirds column">
-			<h3>Cottrell 3 - Harvard JSON test</h3>
-			<p>A little test to grab some data from the Harvard JSON API. Tested for an author keyword AND a titlekeyword, limit 20.</p>
+			<h3>Test cases</h3>
+			<p>The following tests have bee set up to demonstrate searches on the available endpoints and API's. There may be some delay in this page loading as the tests are populated.</p>
 			<?php
-				$json = file_get_contents("http://api.dp.la/v0.03/item/?filter=dpla.creator_keyword:cottrell&filter=dpla.title_keyword:ann&limit=20");
-				$json_a=json_decode($json,true);
-				
-				echo "<table class='example_table'>";
-				echo "	<tr>";
-				echo "		<th>Title</th>";
-				echo "		<th>Author(s)</th>";
-				echo "	</tr>";
-				
-				foreach($json_a['docs'] as $document) :
-					echo "<tr>";
-					
-					//Title
-					
-					echo "<td>".$document['dpla.title']."</td>";
-					
-					//Authors
-					$creator_counter = 0;
-					
-					$all_authors = false;
-					
-					echo "<td>";
-					
-					do {
-						if (array_key_exists($creator_counter, $document['dpla.creator'])) :
-							if ($creator_counter == 0) :
-								echo $document['dpla.creator'][$creator_counter];
-							else :
-								echo ", ".$document['dpla.creator'][$creator_counter];
-							endif;
-							$creator_counter++;
-						else :
-							$all_authors = true;
-						endif;
-					} while ($all_authors == false);
-					
-					echo "</td>";
-					echo "</tr>";
-				endforeach;
-				
-				/*$jsonIterator = new RecursiveIteratorIterator(
-					new RecursiveArrayIterator(json_decode($json, TRUE)),
-					RecursiveIteratorIterator::SELF_FIRST);
-
-				foreach ($jsonIterator as $key => $val) {
-					if(is_array($val)) {
-						echo "<strong>$key:</strong><br />";
-					} else {
-						echo "$key => $val<br />";
-					}
-				}*/
+				include( "sparqllib.php" );
 			?>
+
+			<ul class="tabs">
+				<li><a class="active" href="#cottrell1">Test 1a - Cambridge</a></li>
+				<li><a href="#cottrell2">Test 1b - Cambridge</a></li>
+				<li><a href="#cottrell3">Test 2 - Harvard</a></li>
+			</ul>
+			
+			<ul class="tabs-content">
+				<li class="active" id="cottrell1">
+					<?php cottrell1(); ?>
+				</li> <!-- #cottrell1 -->
+				<li id="cottrell2">
+					<?php cottrell2(); ?>
+				</li> <!-- #cottrell2 -->
+				<li id="cottrell3">
+					<?php cottrell3(); ?>
+				</li> <!-- #cottrell3 -->
+			</ul>
 		</div>
 
 	</div><!-- container -->
