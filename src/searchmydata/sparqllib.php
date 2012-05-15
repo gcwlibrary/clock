@@ -1,4 +1,4 @@
-<?
+<?php
 
 ###############################
 # Christopher Gutteridge 2010
@@ -489,3 +489,4 @@ table.sparql-results tr th { border: solid 1px #000 ; padding:4px;vertical-align
 	}
 
 }
+?>
