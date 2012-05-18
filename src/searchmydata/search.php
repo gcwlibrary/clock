@@ -113,7 +113,7 @@
 				foreach( $fields as $field )
 				{
 					if( $field == "s" ) :
-						echo '<td><a href="http://localhost/searchmydata/single.php?uri='.$row[$field].'">';
+						echo '<td><a href="'.$root.'/single.php?uri='.$row[$field].'">';
 					elseif ( $field == "title" ) :
 						echo $row[$field].'</a></td>';
 					elseif ( $field == "who" ) :
