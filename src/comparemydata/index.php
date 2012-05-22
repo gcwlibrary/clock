@@ -1,3 +1,5 @@
+<?php include ("functions.php"); ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -45,28 +47,21 @@
 
 	<div class="container">
 		<div class="sixteen columns">
-			<h1 class="remove-bottom" style="margin-top: 40px">Skeleton</h1>
-			<h5>Version 1.1</h5>
-			<hr />
+			<h1 class="remove-bottom" style="margin-top: 40px">COMPAREmyDATA</h1>
+			<h5>Version <?php the_version();?></h5>
+			<br />
+			<?php the_menu(); ?>
 		</div>
-		<div class="one-third column">
-			<h3>About Skeleton?</h3>
-			<p>Skeleton is a small collection of well-organized CSS &amp; JS files that can help you rapidly develop sites that look beautiful at any size, be it a 17" laptop screen or an iPhone. It's based on a responsive grid, but also provides very basic CSS for typography, buttons, tabs, forms and media queries. Go ahead, resize this super basic page to see the grid in action.</p>
-		</div>
-		<div class="one-third column">
-			<h3>Three Core Principles</h3>
-			<p>Skeleton is built on three core principles:</p>
-			<ul class="square">
-				<li><strong>A Responsive Grid Down To Mobile</strong>: Elegant scaling from a browser to tablets to mobile.</li>
-				<li><strong>Fast to Start</strong>: It's a tool for rapid development with best practices</li>
-				<li><strong>Style Agnostic</strong>: It provides the most basic, beautiful styles, but is meant to be overwritten.</li>
+		<div class="sixteen columns">
+			<h3>Who-ja?!?</h3>
+			<p>COMPAREmyDATA is a prototpe app which takes a number of URI's pointing at the same piece of data in different bibliographic datastores, compares them and identifies any similarities and differences.</p>
+			<p>For the purpose of this prototype, we're using fixed URI's, referencing Watchmen by Alan Moore. The URI's are:</p>
+			<ul>
+				<li><a href="http://data.lib.cam.ac.uk/id/entry/cambrdgedb_4741140">http://data.lib.cam.ac.uk/id/entry/cambrdgedb_4741140 (Cambridge)</a></li>
+				<li><a href=""></a></li>
 			</ul>
 		</div>
-		<div class="one-third column">
-			<h3>Docs &amp; Support</h3>
-			<p>The easiest way to really get started with Skeleton is to check out the full docs and info at <a href="http://www.getskeleton.com">www.getskeleton.com.</a>. Skeleton is also open-source and has a <a href="https://github.com/dhgamache/skeleton">project on git</a>, so check that out if you want to report bugs or create a pull request. If you have any questions, thoughts, concerns or feedback, please don't hesitate to email me at <a href="mailto:hi@getskeleton.com">hi@getskeleton.com</a>.</p>
-		</div>
-
+		
 	</div><!-- container -->
 
 
