@@ -59,6 +59,7 @@
 		<div class="two-thirds column">
 			<h3>GO SEARCH GO!</h3>
 			<p><- Get your search on with this here form!</p>
+			<p>BIG IMPORTANT NOTE - this version of the CLOCK app has now been abandoned!</p>
 		</div>
 
 	</div><!-- container -->
