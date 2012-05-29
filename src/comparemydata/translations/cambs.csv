@@ -1,0 +1,6 @@
+clock_root,http://data.lib.cam.ac.uk/id/entry/cambrdgedb_4741140
+clock_root_offset,#NONE
+http://purl.org/dc/terms/title,Title
+http://purl.org/dc/terms/description,Description
+http://purl.org/ontology/bibo/isbn,ISBN
+http://purl.org/dc/terms/creator,Creator

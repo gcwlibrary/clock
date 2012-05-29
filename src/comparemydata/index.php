@@ -55,10 +55,11 @@
 		<div class="sixteen columns">
 			<h3>Who-ja?!?</h3>
 			<p>COMPAREmyDATA is a prototpe app which takes a number of URI's pointing at the same piece of data in different bibliographic datastores, compares them and identifies any similarities and differences.</p>
-			<p>For the purpose of this prototype, we're using fixed URI's, referencing Watchmen by Alan Moore. The URI's are:</p>
+			<p>For the purpose of this prototype, we're using fixed URI's, referencing Watchmen by Alan Moore. Format is JSON. The URI's are:</p>
 			<ul>
-				<li><a href="http://data.lib.cam.ac.uk/id/entry/cambrdgedb_4741140">http://data.lib.cam.ac.uk/id/entry/cambrdgedb_4741140 (Cambridge)</a></li>
-				<li><a href=""></a></li>
+				<li><a href="http://data.lib.cam.ac.uk/id/entry/cambrdgedb_4741140.json">http://data.lib.cam.ac.uk/id/entry/cambrdgedb_4741140.json (Cambridge)</a></li>
+				<li><a href="http://api.dp.la/v0.03/item/0EF862E2-4F73-1F0C-57BB-371DA1876AD7">http://api.dp.la/v0.03/item/0EF862E2-4F73-1F0C-57BB-371DA1876AD7 (Harvard)</a></li>
+				<li><a href="http://openlibrary.org/books/OL15479330M.json">http://openlibrary.org/books/OL15479330M.json (OpenLibrary)</a></li>
 			</ul>
 		</div>
 		
