@@ -1,6 +1,6 @@
 <?php
-	//$root = "http://clock.lncd.org/searchmydata";
-	$root = "http://localhost/comparemydata";
+	$root = "http://clock.lncd.org/comparemydata";
+	//$root = "http://localhost/comparemydata";
 	
 	function the_menu(){
 		global $root;
