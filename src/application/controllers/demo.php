@@ -40,7 +40,7 @@
 *
 */
 
-class Welcome extends CI_Controller {
+class Demo extends CI_Controller {
 
 	/**
 	* Brief description of the function
@@ -52,7 +52,12 @@ class Welcome extends CI_Controller {
 	*/
 	public function index()
 	{
-		echo 'CLOCK - I NEED TO DO SOMETHING HERE...';
+		echo 'demo 1';
+	}
+	
+	public function foo()
+	{
+		echo 'bar baz';
 	}
 }
 
