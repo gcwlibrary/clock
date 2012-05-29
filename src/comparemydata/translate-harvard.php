@@ -63,7 +63,7 @@
 				
 				$translation = translate($uri,$trans_file);
 				
-				var_dump($translation);			
+				d($translation);			
 			?>
 		</div>
 		

@@ -1,4 +1,6 @@
-<?php include ("functions.php"); ?>
+<?php 
+	include ("functions.php");
+?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
@@ -63,7 +65,7 @@
 				
 				$translation = translate($uri,$trans_file);
 				
-				var_dump($translation);
+				d($translation);
 			?>
 		</div>
 		
