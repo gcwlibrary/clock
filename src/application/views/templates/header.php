@@ -51,7 +51,7 @@
 
 	<div class="container">
 		<div class="sixteen columns">
-			<h1 class="remove-bottom" style="margin-top: 40px">COMPAREmyDATA</h1>
+			<h1 class="remove-bottom" style="margin-top: 40px">CLOCK</h1>
 			<h5>Version <?php the_version();?></h5>
 			<br />
 			<?php the_menu(); ?>
