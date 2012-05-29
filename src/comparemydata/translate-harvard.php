@@ -57,75 +57,13 @@
 			<p>This is a test to try and fix a system for translating JSON files.</p>
 			<p>Translation file is a csv, which shows which fields in the JSON output need translating.</p>
 			
-			<?php
-				//Pseudocode!!
-				//-----------------------------------------------------------------------
-				//1. Load translate file
-				//	- Stored as a 2D array in $translator
-				//	- First row should always contain a pointer to the root (clock_root) of the documents with the followin rules
-				//		- #URI = the URI of the data
-				//		- #NONE = no root
-				//		- Anything else, pointer in the array, pipe delimited
-				//	- Second row is an offset pointer (clock_root_offset) in case the root is just off, as in Harvard
-				//		- #NONE = no offset
-				//		- Anything else, the offset number
-				
-				$trans_file = fopen("translations/harvard.csv", "r");
+			<?php				
+				$trans_file = "harvard.csv";
 				$uri = "http://api.dp.la/v0.03/item/0EF862E2-4F73-1F0C-57BB-371DA1876AD7";
 				
-				while (($data = fgetcsv($trans_file, 1000, ",")) !== FALSE) {
-					$translator[] = $data;
-				}
+				$translation = translate($uri,$trans_file);
 				
-				fclose($trans_file);
-				
-				//var_dump($translator); //#DEBUG
-				
-				//2. Load JSON
-				//	2a. Identify document root
-				
-				$json = file_get_contents($uri);
-				$json_a=json_decode($json,true);
-				
-				$clock_root = $translator[0][1];
-				$clock_root_offset = $translator[1][1];
-				
-				//echo $clock_root; //#DEBUG
-				//echo $clock_root_offset; //#DEBUG
-				
-				if( $clock_root == "#URI" ) :
-					if( $clock_root_offset <> "#NONE" ) :
-						$record = $json_a[$uri][$clock_root_offset];
-					else :
-						$record = $json_a[$uri];
-					endif;
-				elseif( $clock_root == "#NONE" ) :
-					$record = $json_a;
-				else :
-					if( $clock_root_offset <> "#NONE" ) :
-						$record = $json_a[$clock_root][$clock_root_offset];
-					else :
-						$record = $json_a[$clock_root];
-					endif;
-				endif;
-				
-				//var_dump($record); //#DEBUG
-				
-				//3. Step through JSON
-				//	3a. For each entry in JSON, check in translation file
-				//	3b. If JSON identifier is found, write value into Array
-				
-				
-				foreach( $translator as $trans ) :
-					if( array_key_exists( $trans[0],$record ) ) :
-						$local_record[$trans[1]] = $record[$trans[0]];
-					endif;
-				endforeach;
-				
-				var_dump($local_record); //#DEBUG
-				
-				//4. Output array
-			
+				var_dump($translation);			
 			?>
 		</div>
 		

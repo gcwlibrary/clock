@@ -61,6 +61,7 @@
 				<li><a href="http://api.dp.la/v0.03/item/0EF862E2-4F73-1F0C-57BB-371DA1876AD7">http://api.dp.la/v0.03/item/0EF862E2-4F73-1F0C-57BB-371DA1876AD7 (Harvard)</a></li>
 				<li><a href="http://openlibrary.org/books/OL15479330M.json">http://openlibrary.org/books/OL15479330M.json (OpenLibrary)</a></li>
 			</ul>
+			<p>We're taking the data from these URI's and running it through a universal translator to give us a standrd array structure that we can work with.</p>
 		</div>
 		
 	</div><!-- container -->
