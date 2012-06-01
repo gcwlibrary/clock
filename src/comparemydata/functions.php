@@ -12,7 +12,7 @@
 					<li><a href="'.$root.'/translate-cambs.php">Cambridge Translation (TEST)</a></li>
 					<li><a href="'.$root.'/translate-harvard.php">Harvard Translation (TEST)</a></li>
 					<li><a href="'.$root.'/translate-olib.php">Open Library Translation (TEST)</a></li>
-					<li><a href="'.$root.'/compare.php">Compare!</a></li>			
+					<li><a href="'.$root.'">CLOCK</a></li>			
 				</ul>';
 		
 		echo $menu;

@@ -53,8 +53,9 @@
 			<?php the_menu(); ?>
 		</div>
 		<div class="sixteen columns">
-			<h3>Who-ja?!?</h3>
+			<h3>About</h3>
 			<p>COMPAREmyDATA is a prototpe app which takes a number of URI's pointing at the same piece of data in different bibliographic datastores, compares them and identifies any similarities and differences.</p>
+			<p>The key working part of this app is, at present, the Universal JSON Translator, which works to convert data from each of the URI's into a usable format.</p>
 			<p>For the purpose of this prototype, we're using fixed URI's, referencing Watchmen by Alan Moore. Format is JSON. The URI's are:</p>
 			<ul>
 				<li><a href="http://data.lib.cam.ac.uk/id/entry/cambrdgedb_4741140.json">http://data.lib.cam.ac.uk/id/entry/cambrdgedb_4741140.json (Cambridge)</a></li>

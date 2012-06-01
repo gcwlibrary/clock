@@ -7,7 +7,8 @@
 		$menu = '<ul class="tabs">
 					<li><a href="'.$root.'">Home</a></li>
 					<li><a href="'.$root.'/about.php">About</a></li>
-					<li><a href="'.$root.'/tests.php">Tests</a></li>				
+					<li><a href="'.$root.'/tests.php">Tests</a></li>
+					<li><a href="'.$root.'">CLOCK</a></li>					
 				</ul>';
 		
 		echo $menu;

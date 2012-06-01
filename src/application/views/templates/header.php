@@ -56,3 +56,7 @@
 			<br />
 			<?php the_menu(); ?>
 		</div>
+		<div class="one-third column">
+			<?php the_side_menu(); ?>
+		</div>
+		<div class="two-thirds column">
