@@ -1,0 +1,13 @@
+/* CSS for Clock specific elements */
+ul.compared li{
+	padding: 5px;
+	background-color: #ccc;
+}
+
+span.diff{
+	display: block;
+	padding: 5px;
+	margin: 5px 0 0 25px;
+	background-color: #bbb;
+	border: solid 1px #666;
+}

@@ -2,7 +2,7 @@
 	include ("kint/Kint.class.php");
 	
 	$root = "http://clock.lncd.org/comparemydata";
-	//$root = "http://localhost/comparemydata";
+	//$root = "http://localhost/clock/src/comparemydata";
 	
 	function the_menu(){
 		global $root;
@@ -12,6 +12,7 @@
 					<li><a href="'.$root.'/translate-cambs.php">Cambridge Translation (TEST)</a></li>
 					<li><a href="'.$root.'/translate-harvard.php">Harvard Translation (TEST)</a></li>
 					<li><a href="'.$root.'/translate-olib.php">Open Library Translation (TEST)</a></li>
+					<li><a href="'.$root.'/compare.php">Compare</a></li>
 					<li><a href="'.$root.'">CLOCK</a></li>			
 				</ul>';
 		
@@ -80,7 +81,37 @@
 		
 		foreach( $translator as $trans ) :
 			if( array_key_exists( $trans[0],$record ) ) :
-				$local_record[$trans[1]] = $record[$trans[0]];
+				//Step through the values within the current record value
+				//Is value an array?
+				//	- If yes, we need to break this down and only write the value back
+				//	- If not, write the value
+				if( is_array($record[$trans[0]]) ) :
+					foreach( $record[$trans[0]] as $index => $value ) :
+						//echo "index => ".$index." | value => ".$value."<br />"; //#DEBUG
+						if( is_array($value) ) :
+							foreach( $value as $index_a => $value_a ) :
+								//echo "index => ".$index_a." | value => ".$value_a."<br />"; //#DEBUG
+								if( $index_a === "type" ) :
+									//echo "SKIPIT<br />"; //#DEBUG
+								else :									
+									$local_record[$trans[1]][] = $value_a;
+								endif;
+							endforeach;
+						else :
+							//echo $index; #DEBUG
+							//var_dump(is_null($index)); //#DEBUG
+							if( $index === "type" ) :
+								//echo "SKIPIT<br />"; //#DEBUG
+							else :							
+								$local_record[$trans[1]][] = $value;
+							endif;
+						endif;
+						//echo $index." ".$value;
+					endforeach;
+				else :
+					$local_record[$trans[1]][] = $record[$trans[0]];
+				endif;
+				//$local_record[$trans[1]][] = $record[$trans[0]]; //#DEBUG
 			endif;
 		endforeach;
 		
@@ -89,4 +120,64 @@
 		return($local_record);
 	}
 	
+	function compare( $elements, $default ){
+		//Read each source into an array
+		//These are stored in sources.csv, representing:
+		//	{translator file},{uri}
+		//Long term, these will be derived from our index database
+		$source_file = fopen( "sources.csv", "r" );
+		
+		while (( $data = fgetcsv($source_file, 1000, ",")) !== FALSE ) {
+			$sources[] = $data;
+		}
+		
+		fclose($source_file);
+		
+		//d($sources); //#DEBUG
+		foreach( $sources as $source ) :
+			$trans_file = $source[0].".csv";
+			$bibs[$source[0]] = translate( $source[1],$trans_file ); //Translating all of our data from our sources
+		endforeach;
+		//d($bibs); //#DEBUG
+		
+		$output = '<ul class="compared">'; //Set up our blank output
+		
+		//For each element
+		foreach( $elements as $element ) :
+		//	1. Add the default source to the output
+			$output .= "<li>";
+			$output .= "<h5>" . $element . "</h5>";
+			
+			foreach( $bibs[$default][$element] as $the_default ) :
+				$output .= $the_default."<br />";
+			endforeach;
+			
+			
+						
+		//	2. For each source not default
+		//		2a. Compare element to default
+		
+			foreach( $sources as $source ) :
+				if ( $source[0] != $default ) : //If this isn't the default source
+					//echo $source[0]; #DEBUG
+					///echo $element; #DEBUG
+					foreach( $bibs[$source[0]][$element] as $the_element ) :
+						if( in_array( $the_element, $bibs[$default][$element] ) ) :
+							//Do nothing
+						else :
+		//		2b. Add element to output if different
+							$output .= '<span class="diff"><strong>' . $source[2] . ' says -> </strong>' . $the_element . '<br /></span>';
+						endif;
+					endforeach;
+				endif;
+			endforeach;
+			
+			$output .= "</li>";
+			
+		endforeach;
+		
+		$output .= "</ul>";
+		
+		return $output;
+	}
 ?>

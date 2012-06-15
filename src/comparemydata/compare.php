@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="stylesheets/base.css">
 	<link rel="stylesheet" href="stylesheets/skeleton.css">
 	<link rel="stylesheet" href="stylesheets/layout.css">
+	<link rel="stylesheet" href="stylesheets/clock.css">
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -54,8 +55,24 @@
 		</div>
 		<div class="sixteen columns">
 			<h3>Compare!</h3>
-			<p>Yeah - no. Not yet.</p>
-			<p>Try some of the links at the top to look at the data translators.</p>
+			<p>This prototype takes the translation module (which you can see demo'd in the examples above) and places it inside a comparison module.</p>
+			<p>The comparison module takes X number of translated sources, reads them into a local array and compares each of the elements to the defaut source. Where it find any differences in the data it has gathered, it will flag this up to the user.</p>
+			<p>Ultimately, this will allow cataloguers (who are AT the default source) to interrogate their on records and identify any discrepancies or additional information they can include.</p>
+			<p>The module is currently working off local flat CSV files, however the next step is to look at a database structure which could run the comparison module.</p>
+			<h4>Filters</h4>
+			<p>The default source is Cambridge data. You can change this here:</p>
+			<p><a href="?source=cambs">Cambridge</a> | <a href="?source=harvard">Harvard</a> | <a href="?source=olib">Open Library</a></p>
+			
+			<?php
+				if( isset($_GET['source']) ) :
+					$source = $_GET['source'];
+				else:
+					$source = "cambs";
+				endif;
+				
+				$terms = array("Title","Description","ISBN","Creator");
+				echo compare($terms,$source);
+			?>
 		</div>
 		
 	</div><!-- container -->

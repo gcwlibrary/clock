@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="stylesheets/base.css">
 	<link rel="stylesheet" href="stylesheets/skeleton.css">
 	<link rel="stylesheet" href="stylesheets/layout.css">
+	<link rel="stylesheet" href="stylesheets/clock.css">
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -55,7 +56,7 @@
 			<?php the_menu(); ?>
 		</div>
 		<div class="sixteen columns">
-			<h3>Camridge Translation</h3>
+			<h3>Cambridge Translation</h3>
 			<p>This is a test to try and fix a system for translating JSON files.</p>
 			<p>Translation file is a csv, which shows which fields in the JSON output need translating.</p>
 			
