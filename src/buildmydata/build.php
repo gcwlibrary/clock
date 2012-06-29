@@ -48,30 +48,37 @@
 
 	<div class="container">
 		<div class="sixteen columns">
-			<h1 class="remove-bottom" style="margin-top: 40px">COMPAREmyDATA</h1>
+			<h1 class="remove-bottom" style="margin-top: 40px">BUILDmyDATA</h1>
 			<h5>Version <?php the_version();?></h5>
 			<br />
 			<?php the_menu(); ?>
 		</div>
 		<div class="sixteen columns">
-			<h3>Compare!</h3>
-			<p>This prototype takes the translation module (which you can see demo'd in the examples above) and places it inside a comparison module.</p>
-			<p>The comparison module takes X number of translated sources, reads them into a local array and compares each of the elements to the defaut source. Where it find any differences in the data it has gathered, it will flag this up to the user.</p>
-			<p>Ultimately, this will allow cataloguers (who are AT the default source) to interrogate their on records and identify any discrepancies or additional information they can include.</p>
-			<p>The module is currently working off local flat CSV files, however the next step is to look at a database structure which could run the comparison module.</p>
-			<h4>Filters</h4>
-			<p>The default source is Cambridge data. You can change this here:</p>
-			<p><a href="?source=cambs">Cambridge</a> | <a href="?source=cambsalt">Cambridge Alt</a> | <a href="?source=harvard">Harvard</a> | <a href="?source=olib">Open Library</a></p>
-			
+			<h3>Build!</h3>
+			<p>Assuming a default location of Cambridge and a search for Watchmen, this screen simulates what a cataloguer would see tohelp them build/refine their record.</p>
 			<?php
-				if( isset($_GET['source']) ) :
-					$source = $_GET['source'];
-				else:
-					$source = "cambs";
-				endif;
-				
 				$terms = array("Title","Description","ISBN","Creator");
-				echo compare($terms,$source);
+				
+				if( isset($_POST['records']) ) :
+					$output = "";
+				
+					foreach ($terms as $term) :
+						$final[$term] = $_POST[$term];
+						$output .= "<li><h5>" . $term . "</h5>";
+						
+						foreach ($_POST[$term] as $the_data) :
+							$output .= $the_data . "<br />";
+						endforeach;
+						$output .= "</li>";
+					endforeach;
+					
+					?><ul class="compared"><?php
+						echo $output;
+					?></ul><?php
+				else:				
+					$terms = array("Title","Description","ISBN","Creator");
+					echo compare($terms,'cambs');
+				endif;
 			?>
 		</div>
 		

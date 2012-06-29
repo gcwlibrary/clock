@@ -19,7 +19,8 @@
 		$menu = '<h3>Prototypes</h3>
 				<ul>
 					<li><a href="'. base_url() .'sparqlmydata">SPARQLmyDATA</a></li>	
-					<li><a href="'. base_url() .'comparemydata">COMPAREmyDATA</a></li>	
+					<li><a href="'. base_url() .'comparemydata">COMPAREmyDATA</a></li>
+					<li><a href="'. base_url() .'buildmydata">BUILDmyDATA</a></li>	
 				</ul>';
 		
 		echo $menu;

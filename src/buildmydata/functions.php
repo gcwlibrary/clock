@@ -2,17 +2,14 @@
 	include ("kint/Kint.class.php");
 	
 	//$root = "http://clock.lncd.org/comparemydata";
-	$root = "http://localhost/clock/src/comparemydata";
+	$root = "http://localhost/clock/src/buildmydata";
 	
 	function the_menu(){
 		global $root;
 		
 		$menu = '<ul class="tabs">
 					<li><a href="'.$root.'">Home</a></li>
-					<li><a href="'.$root.'/translate-cambs.php">Cambridge Translation (TEST)</a></li>
-					<li><a href="'.$root.'/translate-harvard.php">Harvard Translation (TEST)</a></li>
-					<li><a href="'.$root.'/translate-olib.php">Open Library Translation (TEST)</a></li>
-					<li><a href="'.$root.'/compare.php">Compare</a></li>
+					<li><a href="'.$root.'/build.php">Build</a></li>
 					<li><a href="'.$root.'">CLOCK</a></li>			
 				</ul>';
 		
@@ -140,7 +137,9 @@
 		endforeach;
 		//d($bibs); //#DEBUG
 		
-		$output = '<ul class="compared">'; //Set up our blank output
+		$output = '<form action="build.php" method="post">';
+		$output .= '<input type="hidden" name="records" value="yes" />';
+		$output .= '<ul class="compared">'; //Set up our blank output
 		
 		//For each element
 		foreach( $elements as $element ) :
@@ -149,7 +148,7 @@
 			$output .= "<h5>" . $element . "</h5>";
 			
 			foreach( $bibs[$default][$element] as $the_default ) :
-				$output .= $the_default."<br />";
+				$output .= "<input type='checkbox' name='". $element ."[]' value='". $the_default ."' checked /> ". $the_default ."<br />";
 			endforeach;
 			
 			
@@ -166,7 +165,7 @@
 							//Do nothing
 						else :
 		//		2b. Add element to output if different
-							$output .= '<span class="diff"><strong>' . $source[2] . ' says -> </strong>' . $the_element . '<br /></span>';
+							$output .= '<span class="diff"><input type="checkbox" name="'. $element .'[]" value="'. $the_element .'" /> <strong>' . $source[2] . ' says -> </strong>' . $the_element . '<br /></span>';
 						endif;
 					endforeach;
 				endif;
@@ -177,6 +176,8 @@
 		endforeach;
 		
 		$output .= "</ul>";
+		$output .= '<input type="submit" value="Go!" />';
+		$output .= "</form>";
 		
 		return $output;
 	}
