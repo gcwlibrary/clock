@@ -1,8 +1,8 @@
 <?php
 	include ("kint/Kint.class.php");
 	
-	//$root = "http://clock.lncd.org/comparemydata";
-	$root = "http://localhost/clock/src/buildmydata";
+	$root = "http://clock.lncd.org/buildmydata";
+	//$root = "http://localhost/clock/src/buildmydata";
 	
 	function the_menu(){
 		global $root;

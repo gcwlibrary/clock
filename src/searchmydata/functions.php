@@ -1,5 +1,6 @@
 <?php
 	$root = "http://clock.lncd.org/searchmydata";
+	//$root = "http://localhost/clock/src/searchmydata";
 	
 	function the_menu(){
 		global $root;
